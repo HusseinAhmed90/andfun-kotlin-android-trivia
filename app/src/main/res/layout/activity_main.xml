@@ -17,20 +17,29 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--  (03) Replace the titleFragment with the navHostFragment
+             Change the ID to myNavHostFragment
+             Change the name = androidx.navigation.fragment.NavHostFragment -->
+        <!--  (04) Add app:navGraph pointing to the @navigation/navigation resource -->
+
+        <!--  (05) Add app:defaultNavHost = true
+                - Which means that this NavHost will intercept the system back key.
+                - Should be set explicitly, because we can have multiple
+                  simultaneous NavHosts to handle back. and only one to the NavHosts
+                  to handle back.
+         -->
+        <fragment
+            android:id="@+id/myNavHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <!-- TODO (03) Replace the titleFragment with the navHostFragment
-                 Change the ID to myNavHostFragment
-                 Change the name = androidx.navigation.fragment.NavHostFragment -->
-            <!-- TODO (04) Add app:navGraph pointing to the @navigation/navigation resource -->
-            <!-- TODO (05) Add app:defaultNavHost = true -->
-            <fragment
-                android:id="@+id/titleFragment"
-                android:name="com.example.android.navigation.TitleFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
+
+    </LinearLayout>
 
 </layout>
