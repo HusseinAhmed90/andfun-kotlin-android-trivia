@@ -35,7 +35,6 @@ import android.content.pm.ResolveInfo
 import android.content.pm.PackageManager
 
 
-
 class GameWonFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -43,11 +42,16 @@ class GameWonFragment : Fragment() {
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_won, container, false)
         binding.nextMatchButton.setOnClickListener { view: View ->
-            // TODO (10) Replace action ID with actionGameWonFragmentToGameFragment
+            //  (10) Replace action ID with actionGameWonFragmentToGameFragment
             // From GameWonFragmentDirections
-            view.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)
+            val action = GameWonFragmentDirections.actionGameWonFragmentToGameFragment()
+            view.findNavController().navigate(action)
         }
-        // TODO (08) Add and show toast to get the GameWonFragmentArgs from the arguments Bundle
+        //  (08) Add and show toast to get the GameWonFragmentArgs from the arguments Bundle
+        val args = GameWonFragmentArgs.fromBundle(arguments!!)
+
+        Toast.makeText(context, "NumCorrect: ${args.numQuestions}, NumQuestions: ${args.questionIndex}",
+                Toast.LENGTH_SHORT).show()
         // "NumCorrect: ${args.numCorrect}, NumQuestions: ${args.numQuestions}"
         return binding.root
     }

@@ -97,17 +97,20 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
-                        // TODO (03) Replace the action ID for the game won state with GameFragmentDirections
+                        //  (03) Replace the action ID for the game won state with GameFragmentDirections
                         // GameFragmentDirections.actionGameFragmentToGameWonFragment
-                        // TODO (07) Add the newly-added parameters to the constructor for the Directions
+                        //  (07) Add the newly-added parameters to the constructor for the Directions
                         // numQuestions and questionIndex
-                        view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+
+                        val action = GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex)
+                        view.findNavController().navigate(action)
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    // TODO (04) Replace the action ID for the game over state with GameFragmentDirections
+                    //  (04) Replace the action ID for the game over state with GameFragmentDirections
                     // GameFragmentDirections.actionGameFragmentToGameOverFragment
-                    view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                    val action = GameFragmentDirections.actionGameFragmentToGameOverFragment()
+                    view.findNavController().navigate(action)
                 }
             }
         }
