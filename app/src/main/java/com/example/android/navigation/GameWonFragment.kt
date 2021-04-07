@@ -15,8 +15,6 @@
  */
 
 package com.example.android.navigation
-
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
@@ -28,12 +26,8 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameWonBinding
-import android.content.pm.ResolveInfo
-import android.content.pm.PackageManager
-
 
 
 class GameWonFragment : Fragment() {
