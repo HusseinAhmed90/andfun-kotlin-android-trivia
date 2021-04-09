@@ -27,11 +27,15 @@
         tools:layout="@layout/fragment_title">
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
-        <!-- TODO (03) Add the sliding animation to the titleFragment_to_gameFragment action
+            app:destination="@id/gameFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <!--  (03) Add the sliding animation to the titleFragment_to_gameFragment action
              Go to the navigation editor and select slide_in_left for Enter and Pop Enter
              and slide_in_right for the Exit and Pop Exit animations -->
-        <!-- TODO (02) Create slide_in_left animation in new file
+        <!--  (02) Create slide_in_left animation in new file
              Do this by right clicking on the anim folder with
              New->Animation resource file -->
     </fragment>
@@ -43,13 +47,17 @@
         <action
             android:id="@+id/action_gameFragment_to_gameOverFragment"
             app:destination="@id/gameOverFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@+id/gameFragment"
             app:popUpToInclusive="true" />
         />
-        <!-- TODO (01) Create fade_in animation in new file
+        <!--  (01) Create fade_in animation in new file
              Do this by right clicking on the anim folder with
              New->Animation resource file -->
-        <!-- TODO (07) Add the fade in/out animation to the gameFragment to gameOverFragment action
+        <!--  (07) Add the fade in/out animation to the gameFragment to gameOverFragment action
             Go to the navigation editor and select fade_in for Enter and Pop Enter
             and fade_out for the Exit and Pop Exit animations -->
         <action
